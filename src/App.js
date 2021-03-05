@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.sass';
-import NavBar from './components/NavBar'
-import ListView from './layouts/ListView'
+import HeaderBar from './components/HeaderBar'
+import PageContent from './components/PageContent'
 
 
-function App() {
-  return (
-    <>
-    <NavBar />
-    <ListView />
-    </>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <>
+      <HeaderBar />
+      <PageContent />
+      </>
+    )
+  }
 }
 
 export default App;

@@ -1,38 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap')
-$light: #e5ffff
-$primary: #b2ebf2
-$dark: #818181
+$dark: #000a12
+$light: #4f5b62
 
 *
     margin: 0
     padding: 0
     font-family: 'ubuntu', sans-serif
     list-style-type: none
-
+    text-decoration: none
 #root
     height: 100vh
-    display: flex   
+    display: flex 
+    flex-direction: column  
 .navigation
-    float: left
-    height: 100vh
-    background: $light
-    width: 100px
-    padding: 0 5px
-    .buttons
-        list-style-type: none
-        position: absolute
-        top: 50%
-        transform: translateY(-50%)
-        li:hover
-            cursor: pointer
-            background-color: $primary
-        li
-            margin: 10px 0
-            font-size: 20px
-            background: $light 
-            border: 1px solid $dark
-            border-radius: 4px
-            padding: 15px
-            vertical-align: middle
-            font-weight: 500
-            transition: background 0.15s
+    height: fit-content
+    background: $dark
+    width: 100%
+    h3
+        color: $light
+        padding: 20px
+        font-weight: 500
+        font-size: 20px
+.page-content >*
+    margin: 5px 0
+.page-content
+    width: 70%
+    margin: 1% auto
+    display: flex
+    flex-direction: column
+    a
+        width: fit-content
+    a:visited
+        color: #0000EE
+    .text-input
+        padding: 5px
+        border: 1px solid $light
+        border-radius: 4px
+    .single-item--container
+        border-bottom: 1px solid #cfd8dc
+        .single-item
+            display: flex
+            flex-direction: row
+            padding: 5px
+            .single-item--value
+                margin: 0 10px
+                width: 8vw
+                text-align: center
