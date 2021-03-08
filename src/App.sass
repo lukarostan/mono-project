@@ -24,7 +24,7 @@ $light: #4f5b62
 .page-content >*
     margin: 5px 0
 .page-content
-    width: 70%
+    width: 50%
     margin: 1% auto
     display: flex
     flex-direction: column
@@ -32,17 +32,27 @@ $light: #4f5b62
         width: fit-content
     a:visited
         color: #0000EE
-    .text-input
+    .input
         padding: 5px
         border: 1px solid $light
         border-radius: 4px
+        margin: 0 10px
+        max-height: 30px
     .single-item--container
         border-bottom: 1px solid #cfd8dc
         .single-item
+            
             display: flex
             flex-direction: row
             padding: 5px
+            justify-content: space-evenly
+            a
+                height: fit-content
+                padding: 5px
             .single-item--value
                 margin: 0 10px
                 width: 8vw
                 text-align: center
+                
+                    
+                
