@@ -24,14 +24,25 @@ $light: #4f5b62
 .page-content >*
     margin: 5px 0
 .page-content
-    width: 50%
+    width: 60%
     margin: 1% auto
     display: flex
     flex-direction: column
-    a
+    .title
         width: fit-content
+    .title:hover
+        cursor: pointer
+        text-decoration: underline
+        width: 100px
+    a:hover
+        text-decoration: underline
     a:visited
         color: #0000EE
+    .controls
+        a
+            width: fit-content
+            margin-right: 20px
+        
     .input
         padding: 5px
         border: 1px solid $light
@@ -41,7 +52,6 @@ $light: #4f5b62
     .single-item--container
         border-bottom: 1px solid #cfd8dc
         .single-item
-            
             display: flex
             flex-direction: row
             padding: 5px
@@ -53,6 +63,19 @@ $light: #4f5b62
                 margin: 0 10px
                 width: 8vw
                 text-align: center
-                
-                    
-                
+/////Pagination
+.pagination-container
+    width: 60%
+    margin: auto
+    display: flex
+    flex-direction: column
+    .page-control-container
+        display: flex
+        flex-direction: row
+        margin: 10px 0 40px 0
+        .page-control
+            padding: 10px 15px
+            font-size: 18px
+        .page-control:hover
+            cursor: pointer
+            text-decoration: underline

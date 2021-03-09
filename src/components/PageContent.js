@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleItem from '../components/SingleItem'
 import AddNewItem from '../components/AddNewItem'
+import Pagination from '../components/Pagination'
 import models from '../Models'
 import makes from '../Makes'
 import {
@@ -23,6 +24,7 @@ class PageContent extends React.Component {
     handleChange(event) {
         this.setState({filter: event.target.value
         });
+        console.log(this.state.filter)
         }
 
     render(){
@@ -39,15 +41,20 @@ class PageContent extends React.Component {
             })
             
             let listViewActive = true
-            const ListLegend = <SingleItem makeId={<b>Make</b>} name={<b>Model Name</b>} abrv={<b>Abbrevation</b>}/>
+            const ListLegend = <SingleItem makeId={<b>Make</b>} name={<b>Model Name</b>} abrv={<b>Abbreviation</b>}/>
             
             return(
 
             <Router >
             
                 <div className="page-content">
-                    <h1>Cars</h1>
-                    <Link to="/add">Add New Car</Link>
+                    <h1 className="title" onClick={()=> document.location.href="/"}>Cars</h1>
+                    <div className="controls">
+                        <Link to="/add">Add New Car</Link>
+                        <button className="input" onClick={()=> document.location.href="/edit"}>Edit All</button>
+                        <button className="input" onClick={()=> document.location.href="/list"}>Save All</button>
+                        <button className="input">View as Grid</button>
+                    </div>
                     <Switch>
                         <Route path="/add">
                             <AddNewItem />
@@ -63,6 +70,7 @@ class PageContent extends React.Component {
                     {listViewActive ? ListLegend : null}
                     {modelComponents }
                 </div>
+                <Pagination />
             </Router>  
         )
     }
