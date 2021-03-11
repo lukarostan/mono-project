@@ -2,8 +2,6 @@ import React from 'react'
 import SingleItem from '../components/SingleItem'
 import AddNewItem from '../components/AddNewItem'
 import Pagination from '../components/Pagination'
-import models from '../Models'
-import makes from '../Makes'
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,25 +9,31 @@ import {
     Link
 } from "react-router-dom";
 
+
 class PageContent extends React.Component {
     constructor(){
         super()
         this.state = {
-            models: models,
             filter: '',
-            filterBy: ''
+            filterBy: 'make'
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.handleQueryChange = this.handleQueryChange.bind(this)
+        this.handleFilterTypeChange = this.handleFilterTypeChange.bind(this)
     }
-    handleChange(event) {
-        this.setState({filter: event.target.value
+    handleQueryChange(event) {
+        this.setState({filter: event.target.value,
         });
         console.log(this.state.filter)
         }
+    handleFilterTypeChange(event) {
+        this.setState({filterBy: event.target.value,
+        });
+        console.log(this.state.filterBy)
+        }
 
     render(){
-        const modelComponents = models.map((car)=>{
-            makes.map((make) =>{
+        const modelComponents = this.props.AppState.models.map((car)=>{
+            this.props.AppState.makes.map((make) =>{
                 if(car.makeId === make.id){
                     car.makeId = make.name
                 }
@@ -61,11 +65,11 @@ class PageContent extends React.Component {
                         </Route>
                     </Switch>
                     <span>Filter by 
-                        <select className="input">
+                        <select className="input" value={this.state.filterBy} onChange={this.handleFilterTypeChange}>
                             <option value="make">Make</option>
                             <option value="model">Model</option>
                         </select>:
-                        <input type="search" placeholder="e.g. Passat" className="input" value={this.state.filter} onChange={this.handleChange}></input>
+                        <input type="search" placeholder="e.g. Passat" className="input" value={this.state.filter} onChange={this.handleQueryChange}></input>
                     </span>
                     {listViewActive ? ListLegend : null}
                     {modelComponents }
